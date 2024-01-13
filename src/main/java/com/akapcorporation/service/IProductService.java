@@ -8,4 +8,5 @@ public interface IProductService {
 
 	public String addProduct(Product product);
 	public List<Product> allProducts();
+	
 }
