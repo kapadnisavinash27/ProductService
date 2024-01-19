@@ -5,24 +5,24 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.akapcorporation.Repository.ProductRepository;
-import com.akapcorporation.entity.Product;
+import com.akapcorporation.entity.ProductData;
+import com.akapcorporation.repository.ProductRepository;
 
 @Service
 public class ProductServiceImp implements IProductService {
 
 	@Autowired
-	ProductRepository repo;
+	private ProductRepository repo;
 
-	public List<Product> allProducts() {
+	public List<ProductData> allProducts() {
 		
-		List <Product> products =repo.findAll();
+		List <ProductData> products =repo.findAll();
 		
 		return products;
 	}
 
 	
-	public String addProduct(Product product) {
+	public String addProduct(ProductData product) {
 		repo.save(product);
 		return product.getProductName()+"  Product Uploaded on MarketPlace succesefully  ";
 	}

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.akapcorporation.entity.Product;
+import com.akapcorporation.entity.ProductData;
 import com.akapcorporation.service.ProductServiceImp;
 
 @RestController
@@ -24,7 +24,7 @@ public class ProductRestcontroller {
 	
 	
 	@PostMapping("/add")
-	public ResponseEntity<String> addProduct(@RequestBody Product product){
+	public ResponseEntity<String> addProduct(@RequestBody ProductData product){
 		System.out.println(product.getProductName());
 		String msg =productservice.addProduct(product);
 		System.out.println(product.getProductName());
@@ -37,10 +37,10 @@ public class ProductRestcontroller {
 	
 	
 	@GetMapping("/all")
-	public  ResponseEntity<List<Product>> allProducts(){
+	public  ResponseEntity<List<ProductData>> allProducts(){
 		
-		List<Product> products=productservice.allProducts();
-		return new ResponseEntity<List<Product>>(products,HttpStatus.OK);
+		List<ProductData> products=productservice.allProducts();
+		return new ResponseEntity<List<ProductData>>(products,HttpStatus.OK);
 	}
 
 }
